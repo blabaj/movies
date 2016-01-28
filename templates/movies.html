@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>MovieDatabase</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+        <script>
+        function goBack() {
+            window.history.back();
+        }
+        </script>
+
+</head>
+<body>
+        <div class="form-group .col-md-6">
+        <form method="post" action="/" id="forma">
+            ChatChat
+         Naslov filma : <input type="text" name="naslov"><br>
+         Ocena:
+            <select name="ocena">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            </select>
+            <br>
+         Slika plakata : <input type="text" name="slika"><br>
+            <input  type="submit" value="Submit" >
+        </div>
+            <br>
+
+        <div class=".col-md-6">
+            <br>
+            {% if napaka %} {{ napaka }}
+             <button onclick="goBack()">Pojdi nazaj</button>
+            {% else %}
+                {% for vnos in vnosi %}
+
+                <p> Naslov filma: {{vnos.naslov}}
+                    Ocena: {{ vnos.ocena }}
+                    <img src="{{ vnos.slika }}" style="width:304px;height:228px;">
+                <br>
+                 </p>
+            {% endfor %}
+            {% endif %}
+            <br>
+         </div>
+
+</form>
+</body>
+</html>
